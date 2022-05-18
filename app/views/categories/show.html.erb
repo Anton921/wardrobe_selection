@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row row-cols-2">
+    <% @products.each do |records| %>
+      <div class="col">
+        <dl>
+          <dt> <%= records.title %> </dt>
+        </dl>
+          <%= image_tag("#{records.image}", height: '150', width: '150') %>
+        <dl>
+          <dt> <%= records.content %> </dt>
+        </dl>
+        <%= link_to 'Show', records, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+  <%== pagy_nav(@pagy) %>
+  <%== pagy_info(@pagy) %>
+</div>
