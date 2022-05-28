@@ -8,6 +8,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <style>
+      footer{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        padding-bottom: 60px;
+      }
+    </style>
   </head>
 
   <body>
@@ -16,6 +30,15 @@
       <%= render 'shared/navbar' %>
       <!--top-header-->
     </div>
-    <%= yield %>
+
+    <div>
+      <%= yield %>
+    </div>
+
+    <!--footer-->
+    <div id='footer'>
+      <%= render 'shared/footer' %>
+    </div>
+    <!--footer-->
   </body>
 </html>

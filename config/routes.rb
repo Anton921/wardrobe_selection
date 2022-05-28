@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   devise_scope :user do  
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :styles
 
-  resources :products
+  resources :products do
+    resources :comments
+  end
 
   resources :categories
 end

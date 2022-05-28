@@ -7,39 +7,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <%= link_to 'Home', products_path, class: "nav-link active"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <%= link_to 'Link', products_path, class: "nav-link active"%>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Countries
+            Styles
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Portugal</a></li>
-            <li><a class="dropdown-item" href="#">Panama</a></li>
-            <li><a class="dropdown-item" href="#">Montenegro</a></li>
-            <li><a class="dropdown-item" href="#">All countries</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <% @styles.each do |style| %>
+              <li><%= link_to style.title, style, class: 'dropdown-item' %></li>
+            <% end %>
           </ul>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Programs
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Citizenship</a></li>
-            <li><a class="dropdown-item" href="#">Residency</a></li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -57,11 +42,6 @@
                   <%= link_to 'API', '/oauth/applications', style: "color: blue" %>
                 </li>
               <% end %>
-              <li>
-                <a href="#">
-                  Welcome, <%= current_user.email %>
-                </a>
-              </li>
               <li>
                 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
               </li>

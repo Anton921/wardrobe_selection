@@ -1,32 +1,5 @@
-<h1>Styles</h1>
-
-<%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %>
-
 <div class="container">
-  <div class="row row-cols-2">
-    <% @styles.each do |records| %>
-      <div class="col">
-        <dl>
-          <dt> <%= records.title %> </dt>
-        </dl>
-          <dt> <%= records.content %> </dt>
-        <dl>
-          <dt> 
-            <%= link_to 'Show', records, class: 'btn btn-primary' %> 
-          </dt>
-        </dl>
-      </div>
-    <% end %>
-  </div>
-  <%== pagy_nav(@pagy) %>
-  <%== pagy_info(@pagy) %>
-</div>
-
-<h1>Products</h1>
-
-<%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %>
-
-<div class="container">
+  <h1>Products where name <%= params[:q] %></h1>
   <div class="row row-cols-2">
     <% @products.each do |records| %>
       <div class="col">
