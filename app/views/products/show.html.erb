@@ -19,6 +19,10 @@
   </div>
 </p>
 
+<% if user_signed_in? %>
+  <%= render 'likes/form' %>
+<% end %>
+
 
 <p>
   <div class="text-center">
@@ -41,7 +45,7 @@
       <div class="m-2 d-flex-column">
         <% @product.comments.each do |comment| %>
           <div class="col- pt-4 bg-white position-relative mb-3">
-            <% if comment.rating = 0 %>
+            <% if comment.rating == 0 %>
               <p>No raiting ⭐</p>
             <% else %>
               <p>⭐<%= comment.rating %></p>
@@ -61,11 +65,10 @@
       <p>No comment yet</p>
     <% end %>
 
-    <div>
-      <% if user_signed_in? %>
-        <%= render 'comments/form' %>
-      <% end %>
-    </div>
+  <div>
+    <%= render 'comments/form' %>
   </div>
+
+</div>
 
 <%= link_to 'Back', products_path, class: 'btn btn-black' %>

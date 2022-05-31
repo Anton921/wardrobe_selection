@@ -10,7 +10,7 @@
           <%= link_to 'Home', products_path, class: "nav-link active"%>
         </li>
         <li class="nav-item">
-          <%= link_to 'Link', products_path, class: "nav-link active"%>
+          <%= link_to 'Likes', show_likes_path, class: "nav-link active"%>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +54,6 @@
               </li>
               <li>
                 <%= link_to "Sign up", new_user_registration_path %>
-
               </li>
 
             <% end %>

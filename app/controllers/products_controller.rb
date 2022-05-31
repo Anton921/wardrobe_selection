@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   
   before_action :set_categories
   before_action :update_counter_of_view, only: %i[show]
+  
 
   def index
     @products = Product.all
@@ -10,6 +11,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    if Like.where(user: current_user, product_id: params[:product_id]).exists?
+      @like = Like.where(user: current_user, product_id: params[:product_id])
+      cookies[:variable] = 1
+    end
   end
 
   def search
@@ -21,6 +26,10 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :content, :image, :category_id, :style_id, :counter_of_view)
+  end
+
+  def reset_cookies
+    cookies[:variable] = 0
   end
 
   def set_categories

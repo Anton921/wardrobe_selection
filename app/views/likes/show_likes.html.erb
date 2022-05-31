@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Products</h1>
+  <div class="row row-cols-3">
+    <% @likes.each do |like| %>
+      
+        <div class="col">
+          <dl>
+            <dt> <%= like.product.title %> </dt>
+          </dl>
+          <%= image_tag("#{like.product.image}", height: '150', width: '150') %>
+          <dl>
+            <dt> 
+              <%= link_to 'Show', like.product, class: 'btn btn-primary' %>
+            </dt>
+          </dl>
+        </div>
+      
+    <% end %>
+  </div>
+  <%== pagy_nav(@pagy) %>
+  <%== pagy_info(@pagy) %>
+</div>

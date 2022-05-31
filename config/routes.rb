@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get 'search', to: 'products#search'
+  get 'show_likes', to: 'likes#show_likes'
 
   resources :styles
 
   resources :products do
     resources :comments
+    resources :likes
   end
 
   resources :categories
+  resources :likes
 end
