@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   def user_rating
     return 0 if comments.empty?
+
     comments.sum(&:rating).to_f / comments.count
   end
-  
 end

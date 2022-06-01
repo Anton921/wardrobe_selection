@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-    before_action :set_styles
-    include Pagy::Backend
+  before_action :set_styles
+  include Pagy::Backend
 
-    private
+  private
 
-    def set_styles
-        @styles = Style.all
-    end
+  def set_styles
+    @styles = Style.all
+  end
 end

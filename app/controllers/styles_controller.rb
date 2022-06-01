@@ -19,9 +19,8 @@ class StylesController < ApplicationController
   def set_categories
     @categories = Category.all
   end
-  
+
   def set_products
     @products = Product.all
   end
-
 end

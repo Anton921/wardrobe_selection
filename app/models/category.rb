@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-    has_many :products
-    belongs_to :style
-    
+  has_many :products
+  belongs_to :style
 end
