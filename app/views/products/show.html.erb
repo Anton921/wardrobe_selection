@@ -12,6 +12,17 @@
   </div>
 </p>
 
+<p>
+  <div class="text-left">
+    <h4 class="fw-lighter">Users rating:⭐<%= @product.user_rating.round(2) %></h4>
+  </div>
+</p>
+
+<p>
+  <div class="text-left">
+    <h4 class="fw-lighter">Redaction rating:⭐<%= @product.rating %></h4>
+  </div>
+</p>
 
 <p>
   <div class="text-left">
@@ -26,7 +37,7 @@
 
 <p>
   <div class="text-center">
-    <%= image_tag("#{@product.image.presence}") %>
+    <%= image_tag("#{@product.image.presence}", height: '350') %>
   </div>
 </p>
 
@@ -36,6 +47,21 @@
   </div>
 </p>
 
+<p>
+  <div class="fst-italic">
+    Pros of product: <%= @product.pros %>
+  </div>
+</p>
+
+<p>
+  <div class="fst-italic">
+    Cons of product: <%= @product.cons %>
+  </div>
+</p>
+
+<%= link_to "Link to product", @product.link %>
+
+<hr>
 <div>
     <div class="d-flex justify-content-between">
       <h3 class="text-center">Comments:</h3>
@@ -54,7 +80,6 @@
             <p class="p-3 m-0"><%= comment.body %></p>
             <div class="text-right p-1 btn-group-sm">
               <% if current_user == comment.user %>
-                <%= link_to 'Edit', edit_product_comment_path(comment.product, comment), class: "btn btn-secondary" %>
                 <%= button_to 'Destroy', [comment.product, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
               <% end %>
             </div>

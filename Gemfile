@@ -75,6 +75,6 @@ gem 'pagy'
 
 gem 'rails_admin', '~> 3.0'
 
-
+gem 'sanitize'
 
 gem "sassc-rails"

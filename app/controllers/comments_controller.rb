@@ -20,14 +20,6 @@ class CommentsController < ApplicationController
         end 
     end
 
-    def edit
-    end
-
-    def update
-        @comment.update(comment_params)
-        redirect_to @comment.product
-    end
-
     def destroy
         @comment.destroy
         redirect_to @comment.product

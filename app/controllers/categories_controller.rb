@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @products = @category.products
+    @products = @category.products.order(created_at: :desc)
     @pagy, @records = pagy(@products, items: 10)
   end
 

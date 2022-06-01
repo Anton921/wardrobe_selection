@@ -5,20 +5,17 @@ class ProductsController < ApplicationController
   
 
   def index
-    @products = Product.all
-    @pagy, @records = pagy(@products, items: 10)
+    @products = Product.all.order(created_at: :desc)
+    @pagy, @records = pagy(@products, items: 12)
   end
 
   def show
     @product = Product.find(params[:id])
-    if Like.where(user: current_user, product_id: params[:product_id]).exists?
-      @like = Like.where(user: current_user, product_id: params[:product_id])
-      cookies[:variable] = 1
-    end
+    @like = Like.find_by(user: current_user, product_id: params[:id]) if Like.where(user: current_user, product_id: params[:id]).exists?
   end
 
   def search
-    @products = Product.where('title LIKE?', "%" + params[:q] + "%").order('title')
+    @products = Product.where('title LIKE?', "%" + params[:q] + "%").order(created_at: :desc)
     @pagy, @records = pagy(@products, items: 10)
   end
 

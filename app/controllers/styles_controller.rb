@@ -10,7 +10,7 @@ class StylesController < ApplicationController
   def show
     @style = Style.find(params[:id])
     @categories = @style.categories
-    @products = @style.products
+    @products = @style.products.order(created_at: :desc)
     @pagy, @records = pagy(@products, items: 10)
   end
 
